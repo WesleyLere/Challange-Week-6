@@ -1,1 +1,29 @@
+.title {
+    background-color: rgb(46, 46, 250);
+    height: 55px;
+    color: white;
+    
+    padding-left: 20px;
+}
 
+#weathercards{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.card{
+    margin:5px
+}
+.btn-group-vertical{
+    display: flex;
+}
+.top{
+    display: flex;
+}
+.jumbotron {
+    border-width: 5px;
+    border-color: gray;
+}
+.btn-dark{
+    background-color: gray;
+    border-color: white;
+}

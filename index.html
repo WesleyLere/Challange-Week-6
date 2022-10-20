@@ -1,101 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="styles.css">
-  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <title>5-Day Weather Report☀️</title>
 </head>
-
 <body>
+    <nav id="title">
+        <div class="row w-100 justify-content-center">
+        <h1 class="text-left text-white">5-Day Weather Report☀️</h1>
+        </div>
+      </nav>
+    <main class="d-flex">
+    <aside class="w-25">
+        <div class="d-flex row">
+        <div class="col text-center m-2" id="data-submit">
+            <h2 class="display-5 text-white">Search for a City: </h2>
+            <input type="text" class="w-100" id="location"></input>
+            <button class="btn btn-primary w-100 my-3" id="btn">Search</button>
+        </div>
+        </div>
+        <div class="col" id="recent-search">
+            <ul class="list-style-none my-3" id="recent-list">
 
-  <h1 class="title">5-Day Weather Report☀️</h1>
-
-
-  <main class="flex-row justify-space-between">
-    <div class="top">
-
-      <div class="card, col-4">
-        <h3 class="card-header text-uppercase">Search For a City</h3>
-        <form id="city-form" class="card-body">
-          <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
-          <button type="submit" class="btn">Search</button>
-        </form>
-      </div>
-      <div class="jumbotron , col-8">
-        <h1 class="weathertitle">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-          featured content or information.</p>
-        
-      </div>
-      <div class="card">
-      </div>
-    </div>
-    </div>
-
-    <div class="col-12 col-md-8">
-      <div id="city-weather-info"></div>
-      <div id="forecast-5-days" class="list-group"></div>
-    </div>
-  </main>
-  <div class="col-12 " id="weathercards">
-    <div class="card" style="width: 16rem;" id="day1">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <p class="card-text"></p>
-
-      </div>
-    </div>
-    <div class="card" style="width: 16rem;" id="day2">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <p class="card-text"></p>
-
-      </div>
-    </div>
-    <div class="card" style="width: 16rem;" id="day3">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <p class="card-text"></p>
-
-      </div>
-    </div>
-    <div class="card" style="width: 16rem;" id="day4">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <p class="card-text"></p>
-
-      </div>
-    </div>
-    <div class="card" style="width: 16rem;" id="day5">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <p class="card-text"></p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-    <div class="btn-group-vertical , col-4" role="group" aria-label="Vertical button group">
-      <button type="button" class="btn btn-dark">Button</button>
-      <button type="button" class="btn btn-dark">Button</button>
-      <button type="button" class="btn btn-dark">Button</button>
-      <button type="button" class="btn btn-dark">Button</button>
-      <button type="button" class="btn btn-dark">Button</button>
-      <button type="button" class="btn btn-dark">Button</button>
-    </div>
-  </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="./script.js"></script>
+            </ul>
+        </div>
+    </aside>
+    <section class="w-100 column">
+        <div class="container cd-12 cd-md-6" id="location-today">
+            <h3 class="text-white" id="location-name"></h3>
+            <h5 class="text-white" id="temperature">Temp: --</h5>
+            <h5 class="text-white" id="wind">Wind: --</h5>
+            <h5 class="text-white" id="humidity">Humidity: --</h5>
+        </div>
+        <section class="w-100 h-100 my-4 column" id="forecast">
+            <div class="container h-100">
+            <h3 class="text-white">5 Day Forecast:</h3>
+                <div class="row h-50" id="forecast-cards">
+                    <div class="col-2 m-3 bg-secondary border text-dark" id="day-1">
+                    </div>
+                    <div class="col-2 m-3 bg-secondary border text-dark" id="day-2">
+                    </div>
+                    <div class="col-2 m-3 bg-secondary border text-dark" id="day-3">
+                    </div>
+                    <div class="col-2 m-3 bg-secondary border text-dark" id="day-4">
+                    </div>
+                    <div class="col-2 m-3 bg-secondary border text-dark" id="day-5">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="./script.js"></script>
 </html>

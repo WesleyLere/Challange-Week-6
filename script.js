@@ -31,7 +31,7 @@ if (localStorage.getItem("search-history")) {
 
 function callApi(event) {
     event.preventDefault();
-      getApi();
+      getWeather();
     };
 
 
@@ -52,10 +52,10 @@ function updateList(newCity) {
 
 function repurposeSearch(event) {
     let cityText = event.target.textContent;
-    getApi(cityText);
+    getWeather(cityText);
 }
 
-function getApi(cityName) {
+function getWeather(cityName) {
     const locationInput = cityName || $('#location').val();
     const geoCall = 'https://api.openweathermap.org/geo/1.0/direct?q='+locationInput+'&appid=379288c134bd33ff0ca6a16b87f06183';
     
@@ -92,7 +92,7 @@ function popData(weatherData) {
   const humidityNow = weatherData.list[0].main.humidity;
   const sIconUrl = 'https://openweathermap.org/img/wn/'+statusIcon+'.png';
   const imgIcon = '<img src='+sIconUrl+'>';
-  locationName.append(weatherData.city.name + ' ' + '('+today+')' + '  ' + imgIcon);
+  locationName.append(weatherData.city.name + ' ' + ''+date1+'' + '  ' + imgIcon);
   temp.append('Temp: ' + tempNow + " °F");
   wind.append('Wind: ' + windNow + " MPH");
   humidity.append('Humidity: ' + humidityNow + " %");
